@@ -3,6 +3,8 @@
 import './App.css';
 import SearchBar from './components/SearchBar'
 import RecipeCard from './components/RecipeCard'
+import Review from './components/Review'
+import './components/Review.css'
 import { useEffect, useState } from 'react';
 
 //const apiKey = "JqF+m0Bi8JSKm4LnTxH82A==4k8AiMUTlKuFTuTb";
@@ -32,7 +34,7 @@ function App() {
     setIsLoading(false);
   };
   useEffect (() => {
-  setQuery("chicken");
+  setQuery("");
   searchRecipes();
   }, [])
 
@@ -42,8 +44,7 @@ const handleSubmit = event => {
 }
 
   return (
-    <div className="App" 
->
+    <div className="App">
       <h1>Best <span className='cook'>Cook</span></h1>
       <SearchBar
       handleSubmit={handleSubmit}
@@ -65,6 +66,7 @@ const handleSubmit = event => {
           <p>No Recipes Found</p>
         )}
       </div>
+      <Review/>
     </div>
   );
   }

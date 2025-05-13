@@ -14,6 +14,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const [hasSearched, setHasSearched] = useState (false);
 
   // function to search for the recipes
   const searchRecipes = async () => {
@@ -27,6 +28,7 @@ function App() {
 
       const data = await response.json();
       setRecipes(data.meals || []);
+      setHasSearched(true);
       console.log(data)
     } catch (error) {
       console.error("Error fetching recipes:", error);
@@ -60,11 +62,12 @@ const handleSubmit = event => {
           <p>Loading...</p>
         ) : recipes.length > 0 ? (
           recipes.map((recipe) => (
-            <RecipeCard key={recipe.idMeal} recipe={recipe} />
+            <RecipeCard key={recipe.idMeal} recipe={recipe} 
+            />
           ))
-        ) : (
+        ) : hasSearched ? (
           <p>No Recipes Found</p>
-        )}
+        ) : null}
       </div>
       <Review/>
     </div>

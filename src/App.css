@@ -97,6 +97,28 @@ a{
   justify-items: center;
 } 
 
+@media (max-width: 300px){
+  .Recipes{
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 750px){
+  .Recipes{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 999px){
+  .Recipes{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(min-width: 1000px){
+  .Recipes{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
 .card {
   background-color: #fff;
   border-radius: 12px;
